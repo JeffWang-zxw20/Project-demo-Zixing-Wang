@@ -1,0 +1,45 @@
+<launch>
+
+    <node name="rosbag" pkg="rosbag" type="play" args=" $(find ekf)/bag/ekf_A3.bag -r 1" />
+    
+    <node pkg="ekf" type="ekf" name="ekf" output="screen">
+        <remap from="~imu" to="/djiros/imu"/>
+        <remap from="~tag_odom" to="/tag_detector/odom_ref"/>
+        <!-- parms -->
+        <!-- Qt -->
+        <param name="gyro_cov" type="double" value="0.001"/>
+        <param name="acc_cov" type="double" value="0.001"/>
+        <!-- Rt -->
+        <param name="position_cov" type="double" value="0.1"/>
+        <param name="q_rp_cov" type="double" value="0.1"/>
+        <param name="q_yaw_cov" type="double" value="0.1"/>
+        <!-- //Qt imu covariance matrix  smaller believe system(imu) more
+        double gyro_cov = 1;//0.01;
+        double acc_cov = 1;//0.01;
+        //Rt visual odomtry covariance smaller believe measurement more
+        double position_cov = 0; //0.1;
+        double q_rp_cov = 0; //0.1;
+        double q_yaw_cov = 0; //0.1; -->
+    </node>
+
+
+    <node pkg="tag_detector" type="tag_detector" name="tag_detector" output="screen">
+        <remap from="~image_raw" to="/djiros/image"/>
+        <param name="cam_cal_file" type="string" value="$(find ekf)/config/TA-camera.yml"/>
+        <param name="board_config_file" type="string" value="$(find ekf)/config/tag_1.yml"/>
+    </node>
+
+    <!-- <node pkg="rviz" type="rviz" name="rviz" /> -->
+
+    <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot" args="/ekf/ekf_odom/pose/pose/position/x:y:z /RigidBody1/pose/position/x:y:z" /> 
+    <!-- <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot2" args="/ekf/ekf_odom/twist/twist/linear/x:y:z" /> -->
+     <!--for test. other status want to view-->
+     <!-- <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot5" args="/ekf/cam_ekf_odom/twist/twist/angular/x:y:z" /> -->
+    <!-- <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot3" args="/ekf/ekf_odom/pose/pose/orientation/w:x:y:z /ekf/cam_ekf_odom/pose/pose/orientation/w:x:y:z" /> -->
+
+    <!-- <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot4" args="/ekf/cam_ekf_odom/pose/pose/position/x:y:z" /> -->
+   <!-- rqt_plot /ekf/ekf_odom/pose/pose/position/x:y:z /ekf/cam_ekf_odom/pose/pose/position/x:y:z -->
+
+   <!-- /ekf/cam_ekf_odom/twist/twist/angular/x:y:z -->
+
+</launch>

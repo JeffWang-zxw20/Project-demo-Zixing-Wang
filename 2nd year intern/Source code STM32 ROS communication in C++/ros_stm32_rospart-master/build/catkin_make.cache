@@ -1,0 +1,2 @@
+ekf_pose:mocap_optitrack:topic_example
+-DCATKIN_DEVEL_PREFIX=/home/jeff/Documents/test_sendmore/devel -DCMAKE_INSTALL_PREFIX=/home/jeff/Documents/test_sendmore/install -G Unix Makefiles

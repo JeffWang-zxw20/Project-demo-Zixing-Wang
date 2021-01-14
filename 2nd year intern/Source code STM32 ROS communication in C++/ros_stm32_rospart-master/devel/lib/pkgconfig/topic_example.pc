@@ -1,0 +1,8 @@
+prefix=/home/jeff/Documents/test_sendmore/devel
+
+Name: topic_example
+Description: Description of topic_example
+Version: 0.0.0
+Cflags: -I/home/jeff/Documents/test_sendmore/src/topic_example/include
+Libs: -L${prefix}/lib 
+Requires: 

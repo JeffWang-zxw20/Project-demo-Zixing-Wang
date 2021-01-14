@@ -1,0 +1,3 @@
+Rr_i:       [ 0, 0, 0, 1 ] #quaterniod(x,y,z,w)  
+tr_i:       [0, 0, 0.]
+# if use Rr_i tr_i Wrong!???
