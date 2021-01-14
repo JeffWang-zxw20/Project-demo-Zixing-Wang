@@ -1,3 +1,3 @@
 https://github.com/Pythonlisation/Mars-Lander
 
-In this repo, you can see some demo videos as well as all source codes.
+In this repo, you can see some demo videos as well as all source codes a Mars Lander simulator.

@@ -1,2 +1,2 @@
 Note!!
-I used an existing template and modified it to work in this project 
+I used an existing template and modified it to make it work in this project.
