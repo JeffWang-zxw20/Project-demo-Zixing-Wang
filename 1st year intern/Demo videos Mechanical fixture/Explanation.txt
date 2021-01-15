@@ -1,0 +1,9 @@
+Please open sound.
+This probe is a  surface collision detector. 
+The testing sound came from a Multimeter. 
+When the probe was bent (detected an obstacle), 
+the sound will disapper meaning that the switch circuit was off.
+A computer will detect whether this signal is on or off 
+and execute relevant commands 
+(e.g. turn on the laser inside the probe 
+and stop moving the probe when an collision is detected)
